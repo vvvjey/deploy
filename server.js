@@ -15,12 +15,12 @@ const mongoose = require('mongoose');
 const app = express()
 
 // set hbs
-app.engine('.hbs', engine({extname: '.hbs'}));
-app.set('view engine', '.hbs');
-app.set('views', path.join(__dirname,'src','views'));
+// app.engine('.hbs', engine({extname: '.hbs'}));
+// app.set('view engine', '.hbs');
+// app.set('views', path.join(__dirname,'src','views'));
 
 // static file
-app.use(express.static(path.join(__dirname,'src','public')))
+// app.use(express.static(path.join(__dirname,'src','public')))
 // connect();
 app.get('/',(req,res)=>{
   res.render('home')
