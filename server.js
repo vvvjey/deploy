@@ -3,14 +3,14 @@ const path = require('path')
 const route = require('./src/routes/route.js')
 const {engine} = require('express-handlebars')
 const mongoose = require('mongoose');
-async function connect() {
-    try {
-      await mongoose.connect('mongodb+srv://hoangtu45:123456789tu@cluster-mongo-test.pdqsm0o.mongodb.net/test');
-      console.log('connect success')
-    } catch (error) {
-      console.log('connect failure')
-    }
-  }
+// async function connect() {
+//     try {
+//       await mongoose.connect('mongodb+srv://hoangtu45:123456789tu@cluster-mongo-test.pdqsm0o.mongodb.net/test');
+//       console.log('connect success')
+//     } catch (error) {
+//       console.log('connect failure')
+//     }
+// }
 
 const app = express()
 
