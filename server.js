@@ -1,14 +1,28 @@
-const http = require('http');
+const express = require('express')
+const path = require('path')
+const route = require('./src/routes/route.js')
+const {engine} = require('express-handlebars')
+const mongoose = require('mongoose');
+async function connect() {
+    try {
+      await mongoose.connect('mongodb+srv://hoangtu45:123456789tu@cluster-mongo-test.pdqsm0o.mongodb.net/test');
+      console.log('connect success')
+    } catch (error) {
+      console.log('connect failure')
+    }
+  }
 
-const hostname = '127.0.0.1';
-const port = 3000;
+const app = express()
 
-const server = http.createServer(function(req, res) {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello Tus Hoang\n');
-});
+// set hbs
+app.engine('.hbs', engine({extname: '.hbs'}));
+app.set('view engine', '.hbs');
+app.set('views', path.join(__dirname,'src','views'));
 
-server.listen(port, hostname, function() {
-  console.log('Server running at http://'+ hostname + ':' + port + '/');
-});
+// static file
+app.use(express.static(path.join(__dirname,'src','public')))
+connect();
+route(app);
+
+
+app.listen(3000)
