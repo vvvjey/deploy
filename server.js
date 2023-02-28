@@ -21,7 +21,7 @@ app.set('views', path.join(__dirname,'src','views'));
 
 // static file
 app.use(express.static(path.join(__dirname,'src','public')))
-connect();
+// connect();
 route(app);
 
 
