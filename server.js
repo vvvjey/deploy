@@ -22,7 +22,10 @@ app.set('views', path.join(__dirname,'src','views'));
 // static file
 app.use(express.static(path.join(__dirname,'src','public')))
 // connect();
-route(app);
+app.get('/',(req,res)=>{
+  res.render('home')
+})
+// route(app);
 
 
 app.listen(3000)
